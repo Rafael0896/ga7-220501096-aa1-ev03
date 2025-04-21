@@ -111,19 +111,19 @@ export default function VersionControlApp() {
     };
 
     return (
-        <div className="flex flex-col min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
-            <header className="bg-white rounded-lg shadow-md p-6 mb-6">
-                <h1 className="text-3xl font-bold text-center text-indigo-800">Herramientas de Versionamiento</h1>
-                <p className="text-gray-600 text-center mt-2">
+        <div className="version-control-app">
+            <header className="app-header">
+                <h1 className="app-title">Herramientas de Versionamiento</h1>
+                <p className="app-subtitle">
                     Explora las características de diferentes sistemas de control de versiones
                 </p>
             </header>
 
-            <nav className="bg-white rounded-lg shadow-md p-2 mb-6">
-                <ul className="flex justify-center space-x-4">
+            <nav className="nav-container">
+                <ul className="nav-list">
                     <li>
                         <button
-                            className={`px-4 py-2 rounded-md transition ${activeTab === 'intro' ? 'bg-indigo-600 text-white' : 'hover:bg-indigo-100'}`}
+                            className={`nav-button ${activeTab === 'intro' ? 'active' : ''}`}
                             onClick={() => setActiveTab('intro')}
                         >
                             Introducción
@@ -131,7 +131,7 @@ export default function VersionControlApp() {
                     </li>
                     <li>
                         <button
-                            className={`px-4 py-2 rounded-md transition ${activeTab === 'local' ? 'bg-indigo-600 text-white' : 'hover:bg-indigo-100'}`}
+                            className={`nav-button ${activeTab === 'local' ? 'active' : ''}`}
                             onClick={() => setActiveTab('local')}
                         >
                             Versionamiento Local
@@ -139,7 +139,7 @@ export default function VersionControlApp() {
                     </li>
                     <li>
                         <button
-                            className={`px-4 py-2 rounded-md transition ${activeTab === 'remote' ? 'bg-indigo-600 text-white' : 'hover:bg-indigo-100'}`}
+                            className={`nav-button ${activeTab === 'remote' ? 'active' : ''}`}
                             onClick={() => setActiveTab('remote')}
                         >
                             Versionamiento Remoto
@@ -147,7 +147,7 @@ export default function VersionControlApp() {
                     </li>
                     <li>
                         <button
-                            className={`px-4 py-2 rounded-md transition ${activeTab === 'comparison' ? 'bg-indigo-600 text-white' : 'hover:bg-indigo-100'}`}
+                            className={`nav-button ${activeTab === 'comparison' ? 'active' : ''}`}
                             onClick={() => setActiveTab('comparison')}
                         >
                             Comparación
@@ -156,21 +156,21 @@ export default function VersionControlApp() {
                 </ul>
             </nav>
 
-            <main className="flex-grow">
+            <main className="main-content">
                 {activeTab === 'intro' && (
-                    <div className="bg-white rounded-lg shadow-md p-6 animate-fadeIn">
-                        <h2 className="text-2xl font-semibold text-indigo-700 mb-4">Control de Versiones: Conceptos Clave</h2>
+                    <div className="content-section">
+                        <h2 className="section-title">Control de Versiones: Conceptos Clave</h2>
 
                         <div className="mb-6">
                             <h3 className="text-xl font-medium text-indigo-600 mb-2">¿Qué es el Control de Versiones?</h3>
-                            <p className="text-gray-700 mb-4">
+                            <p className="section-text">
                                 El control de versiones es un sistema que registra los cambios realizados a un archivo o conjunto de archivos a lo largo del tiempo,
                                 permitiendo recuperar versiones específicas más adelante.
                             </p>
 
-                            <div className="bg-indigo-50 p-4 rounded-lg">
-                                <h4 className="font-medium text-indigo-700 mb-2">Beneficios clave:</h4>
-                                <ul className="list-disc list-inside space-y-1 text-gray-700">
+                            <div className="highlight-box">
+                                <h4 className="highlight-title">Beneficios clave:</h4>
+                                <ul className="feature-list">
                                     <li>Seguimiento completo del historial de cambios</li>
                                     <li>Trabajo colaborativo sin conflictos</li>
                                     <li>Capacidad de revertir a estados anteriores</li>
@@ -180,18 +180,18 @@ export default function VersionControlApp() {
                             </div>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-6">
-                            <div className="bg-blue-50 p-4 rounded-lg">
-                                <h3 className="text-xl font-medium text-blue-700 mb-2">Sistemas Locales</h3>
-                                <p className="text-gray-700">
+                        <div className="grid-2col">
+                            <div className="info-box blue-box">
+                                <h3 className="section-title">Sistemas Locales</h3>
+                                <p className="section-text">
                                     Los sistemas de control de versiones locales mantienen el repositorio en la máquina del desarrollador,
                                     ofreciendo operaciones rápidas y trabajo sin conexión, pero con limitaciones para la colaboración.
                                 </p>
                             </div>
 
-                            <div className="bg-purple-50 p-4 rounded-lg">
-                                <h3 className="text-xl font-medium text-purple-700 mb-2">Sistemas Remotos</h3>
-                                <p className="text-gray-700">
+                            <div className="info-box purple-box">
+                                <h3 className="section-title">Sistemas Remotos</h3>
+                                <p className="section-text">
                                     Los sistemas de control de versiones remotos almacenan el repositorio en servidores accesibles por internet,
                                     facilitando la colaboración entre equipos y proporcionando copias de seguridad externas.
                                 </p>
@@ -201,39 +201,39 @@ export default function VersionControlApp() {
                 )}
 
                 {activeTab === 'local' && (
-                    <div className="space-y-6 animate-fadeIn">
-                        <div className="bg-white rounded-lg shadow-md p-6">
-                            <h2 className="text-2xl font-semibold text-blue-700 mb-4">Herramientas de Versionamiento Local</h2>
-                            <p className="text-gray-700 mb-6">
+                    <div className="content-section">
+                        <div className="mb-6">
+                            <h2 className="section-title">Herramientas de Versionamiento Local</h2>
+                            <p className="section-text">
                                 Las herramientas de versionamiento local permiten gestionar versiones principalmente en la máquina del desarrollador,
                                 sin necesidad constante de un servidor central. Son ideales para trabajo personal o equipos pequeños con necesidades específicas.
                             </p>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-6">
+                        <div className="cards-grid">
                             {localTools.map(tool => (
                                 <div
                                     key={tool.id}
-                                    className={`bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 ${expandedCard === tool.id ? 'ring-2 ring-blue-500' : 'hover:shadow-lg'}`}
+                                    className={`card ${expandedCard === tool.id ? 'active' : ''}`}
                                 >
                                     <div
-                                        className="p-4 cursor-pointer flex items-center justify-between"
+                                        className="card-header"
                                         onClick={() => toggleCard(tool.id)}
                                     >
                                         <div className="flex items-center">
-                                            <span className="text-3xl mr-3">{tool.icon}</span>
-                                            <h3 className="text-xl font-medium text-blue-800">{tool.name}</h3>
+                                            <span className="card-icon">{tool.icon}</span>
+                                            <h3 className="card-title">{tool.name}</h3>
                                         </div>
                                         <span className="text-gray-400">
                       {expandedCard === tool.id ? '▲' : '▼'}
                     </span>
                                     </div>
 
-                                    <div className={`overflow-hidden transition-all duration-300 ${expandedCard === tool.id ? 'max-h-96' : 'max-h-0'}`}>
-                                        <div className="p-4 pt-0 border-t border-gray-100">
-                                            <p className="text-gray-700 mb-3">{tool.description}</p>
-                                            <h4 className="font-medium text-blue-700 mb-2">Características:</h4>
-                                            <ul className="list-disc list-inside space-y-1 text-gray-700">
+                                    <div className={`card-content ${expandedCard === tool.id ? 'expanded' : ''}`}>
+                                        <div className="card-body">
+                                            <p className="card-description">{tool.description}</p>
+                                            <h4 className="highlight-title">Características:</h4>
+                                            <ul className="feature-list">
                                                 {tool.features.map((feature, index) => (
                                                     <li key={index}>{feature}</li>
                                                 ))}
@@ -247,39 +247,39 @@ export default function VersionControlApp() {
                 )}
 
                 {activeTab === 'remote' && (
-                    <div className="space-y-6 animate-fadeIn">
-                        <div className="bg-white rounded-lg shadow-md p-6">
-                            <h2 className="text-2xl font-semibold text-purple-700 mb-4">Herramientas de Versionamiento Remoto</h2>
-                            <p className="text-gray-700 mb-6">
+                    <div className="content-section">
+                        <div className="mb-6">
+                            <h2 className="section-title">Herramientas de Versionamiento Remoto</h2>
+                            <p className="section-text">
                                 Las herramientas de versionamiento remoto facilitan la colaboración entre equipos distribuidos a través de servidores
                                 centralizados accesibles por internet. Ofrecen funcionalidades adicionales como gestión de proyectos, CI/CD y revisión de código.
                             </p>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-6">
+                        <div className="cards-grid">
                             {remoteTools.map(tool => (
                                 <div
                                     key={tool.id}
-                                    className={`bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 ${expandedCard === tool.id ? 'ring-2 ring-purple-500' : 'hover:shadow-lg'}`}
+                                    className={`card ${expandedCard === tool.id ? 'active' : ''}`}
                                 >
                                     <div
-                                        className="p-4 cursor-pointer flex items-center justify-between"
+                                        className="card-header"
                                         onClick={() => toggleCard(tool.id)}
                                     >
                                         <div className="flex items-center">
-                                            <span className="text-3xl mr-3">{tool.icon}</span>
-                                            <h3 className="text-xl font-medium text-purple-800">{tool.name}</h3>
+                                            <span className="card-icon">{tool.icon}</span>
+                                            <h3 className="card-title">{tool.name}</h3>
                                         </div>
                                         <span className="text-gray-400">
                       {expandedCard === tool.id ? '▲' : '▼'}
                     </span>
                                     </div>
 
-                                    <div className={`overflow-hidden transition-all duration-300 ${expandedCard === tool.id ? 'max-h-96' : 'max-h-0'}`}>
-                                        <div className="p-4 pt-0 border-t border-gray-100">
-                                            <p className="text-gray-700 mb-3">{tool.description}</p>
-                                            <h4 className="font-medium text-purple-700 mb-2">Características:</h4>
-                                            <ul className="list-disc list-inside space-y-1 text-gray-700">
+                                    <div className={`card-content ${expandedCard === tool.id ? 'expanded' : ''}`}>
+                                        <div className="card-body">
+                                            <p className="card-description">{tool.description}</p>
+                                            <h4 className="highlight-title">Características:</h4>
+                                            <ul className="feature-list">
                                                 {tool.features.map((feature, index) => (
                                                     <li key={index}>{feature}</li>
                                                 ))}
@@ -293,71 +293,81 @@ export default function VersionControlApp() {
                 )}
 
                 {activeTab === 'comparison' && (
-                    <div className="bg-white rounded-lg shadow-md p-6 animate-fadeIn">
-                        <h2 className="text-2xl font-semibold text-indigo-700 mb-6">Comparación de Sistemas de Versionamiento</h2>
+                    <div className="content-section">
+                        <h2 className="section-title">Comparación de Sistemas de Versionamiento</h2>
 
                         <div className="overflow-x-auto">
-                            <table className="min-w-full divide-y divide-gray-200">
+                            <table className="comparison-table">
                                 <thead>
                                 <tr>
-                                    <th className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Característica</th>
-                                    <th className="px-6 py-3 bg-blue-50 text-left text-xs font-medium text-blue-700 uppercase tracking-wider">Sistemas Locales</th>
-                                    <th className="px-6 py-3 bg-purple-50 text-left text-xs font-medium text-purple-700 uppercase tracking-wider">Sistemas Remotos</th>
+                                    <th>Característica</th>
+                                    <th className="local-header">Sistemas Locales</th>
+                                    <th className="remote-header">Sistemas Remotos</th>
                                 </tr>
                                 </thead>
-                                <tbody className="bg-white divide-y divide-gray-200">
+                                <tbody>
                                 <tr>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Conexión a Internet</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 bg-blue-50">No requerida</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 bg-purple-50">Requerida para sincronización</td>
+                                    <td>Conexión a Internet</td>
+                                    <td className="local-cell">No requerida</td>
+                                    <td className="remote-cell">Requerida para sincronización</td>
                                 </tr>
                                 <tr>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Colaboración</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 bg-blue-50">Limitada</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 bg-purple-50">Extensa</td>
+                                    <td>Colaboración</td>
+                                    <td className="local-cell">Limitada</td>
+                                    <td className="remote-cell">Extensa</td>
                                 </tr>
                                 <tr>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Velocidad de operaciones</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 bg-blue-50">Más rápida</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 bg-purple-50">Depende de la conexión</td>
+                                    <td>Velocidad de operaciones</td>
+                                    <td className="local-cell">Más rápida</td>
+                                    <td className="remote-cell">Depende de la conexión</td>
                                 </tr>
                                 <tr>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Respaldo</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 bg-blue-50">Manual / Local</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 bg-purple-50">Automático / En la nube</td>
+                                    <td>Respaldo</td>
+                                    <td className="local-cell">Manual / Local</td>
+                                    <td className="remote-cell">Automático / En la nube</td>
                                 </tr>
                                 <tr>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Integración con CI/CD</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 bg-blue-50">Complicada</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 bg-purple-50">Integrada</td>
+                                    <td>Integración con CI/CD</td>
+                                    <td className="local-cell">Complicada</td>
+                                    <td className="remote-cell">Integrada</td>
                                 </tr>
                                 <tr>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Revisión de código</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 bg-blue-50">Herramientas limitadas</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 bg-purple-50">Herramientas avanzadas</td>
+                                    <td>Gestión de proyectos</td>
+                                    <td className="local-cell">Limitada</td>
+                                    <td className="remote-cell">Avanzada</td>
                                 </tr>
                                 <tr>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Escala de equipo</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 bg-blue-50">Individual o pequeño equipo</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 bg-purple-50">Equipos grandes y distribuidos</td>
+                                    <td>Revisión de código</td>
+                                    <td className="local-cell">Herramientas limitadas</td>
+                                    <td className="remote-cell">Herramientas avanzadas</td>
+                                </tr>
+                                <tr>
+                                    <td>Escala de equipo</td>
+                                    <td className="local-cell">Individual o pequeño equipo</td>
+                                    <td className="remote-cell">Equipos grandes y distribuidos</td>
+                                </tr>
+                                <tr>
+                                    <td>Seguridad</td>
+                                    <td className="local-cell">Control total</td>
+                                    <td className="remote-cell">Dependencia del proveedor</td>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
 
-                        <div className="mt-8 bg-gray-50 p-4 rounded-lg">
-                            <h3 className="text-lg font-medium text-gray-800 mb-3">¿Cuál elegir?</h3>
-                            <p className="text-gray-700">
+                        <div className="highlight-box mt-8">
+                            <h3 className="highlight-title">¿Cuál elegir?</h3>
+                            <p className="section-text">
                                 La elección entre sistemas locales y remotos depende de:
                             </p>
-                            <ul className="list-disc list-inside space-y-1 mt-2 text-gray-700">
+                            <ul className="feature-list">
                                 <li>Tamaño del equipo y distribución geográfica</li>
                                 <li>Necesidades de colaboración</li>
                                 <li>Requisitos de seguridad y acceso</li>
                                 <li>Integración con flujos de trabajo existentes</li>
                                 <li>Presupuesto y recursos disponibles</li>
                             </ul>
-                            <p className="mt-4 text-gray-700">
+                            <p className="section-text mt-4">
                                 Muchos equipos optan por un enfoque híbrido, aprovechando las ventajas de ambos sistemas:
                                 trabajo local rápido con Git y sincronización con plataformas remotas como GitHub para colaboración.
                             </p>
@@ -366,8 +376,8 @@ export default function VersionControlApp() {
                 )}
             </main>
 
-            <footer className="mt-6 bg-white rounded-lg shadow-md p-4">
-                <p className="text-center text-gray-600 text-sm">
+            <footer className="app-footer">
+                <p className="footer-text">
                     Creado con React - Herramientas de Versionamiento © {new Date().getFullYear()}
                 </p>
             </footer>
